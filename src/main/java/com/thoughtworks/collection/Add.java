@@ -49,9 +49,10 @@ public class Add {
         int count = 0;
         int sum = 0;
         for (int i : arrayList) {
-            if (i % 2 == 0)
+            if (i % 2 == 0) {
                 sum += i;
-            count++;
+                count++;
+            }
         }
         return sum / count;
     }
@@ -64,6 +65,7 @@ public class Add {
 
         return arrayList.stream()
                 .distinct()
+                .filter(v -> v%2==0)
                 .collect(Collectors.toList());
     }
 
