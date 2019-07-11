@@ -52,7 +52,13 @@ public class CollectionOperator {
     }
 
     public int popLastElment(int[] array) {
-        throw new NotImplementedException();
+        Stream<Integer> stream1 = Arrays.stream(array).boxed();
+       int a= 8;
+        System.out.println();
+        return stream1
+                .reduce((first, second) -> second)
+                .orElse(null);
+
     }
 
     public List<Integer> popCommonElement(int[] firstArray, int[] secondArray) {
