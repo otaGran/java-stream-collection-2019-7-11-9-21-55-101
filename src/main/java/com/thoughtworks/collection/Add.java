@@ -45,7 +45,15 @@ public class Add {
 //    }
 
     public double getAverageOfEven(List<Integer> arrayList) {
-        throw new NotImplementedException();
+
+        int count = 0;
+        int sum = 0;
+        for (int i : arrayList) {
+            if (i % 2 == 0)
+                sum += i;
+            count++;
+        }
+        return sum / count;
     }
 
     public boolean isIncludedInEvenIndex(List<Integer> arrayList, Integer specialElment) {
