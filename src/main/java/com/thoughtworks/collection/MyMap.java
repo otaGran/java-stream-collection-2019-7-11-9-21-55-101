@@ -28,7 +28,6 @@ public class MyMap {
     public List<String> mapLetter() {
         return array.stream()
                 .map(v -> letters[v-1])
-
                 .collect(Collectors.toList());
 
     }
@@ -39,20 +38,14 @@ public class MyMap {
 
     public List<Integer> sortFromBig() {
         return array.stream()
-
                 .sorted(Comparator.reverseOrder())
-
-
                 .collect(Collectors.toList());
     }
 
     public List<Integer> sortFromSmall() {
 
         return array.stream()
-
                 .sorted()
-
-
                 .collect(Collectors.toList());
     }
 }

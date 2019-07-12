@@ -20,19 +20,14 @@ public class Add {
     public int getSumTripleAndAddTwo(List<Integer> arrayList) {
 
         return arrayList.stream()
-                .mapToInt(number -> number*3+2)
+                .mapToInt(number -> number * 3 + 2)
                 .sum();
 
     }
 
     public List<Integer> getTripleOfOddAndAddTwo(List<Integer> arrayList) {
         return arrayList.stream()
-                .map((number) ->{
-                    if(number % 2 == 0){
-                        return number;
-                    }else
-                        return number * 3 + 2;
-                } )
+                .map((number) -> number % 2 == 0 ? number : number * 3 + 2)
                 .collect(Collectors.toList());
     }
 
@@ -65,7 +60,7 @@ public class Add {
 
         return arrayList.stream()
                 .distinct()
-                .filter(v -> v%2==0)
+                .filter(v -> v % 2 == 0)
                 .collect(Collectors.toList());
     }
 

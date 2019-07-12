@@ -12,50 +12,34 @@ import java.util.stream.Stream;
 public class CollectionOperator {
     public List<Integer> getListByInterval(int left, int right) {
 
-        if(left > right)
 
-            return IntStream.rangeClosed(Math.min(left, right), Math.max(left, right))
+        return IntStream.rangeClosed(Math.min(left, right), Math.max(left, right))
                 .boxed()
-                .sorted(Comparator.reverseOrder())
+                .sorted(left > right ? Comparator.reverseOrder() : Comparator.naturalOrder())
                 .collect(Collectors.toList());
-        else
-            return IntStream.rangeClosed(Math.min(left, right), Math.max(left, right))
-                    .boxed()
-                    .sorted()
-                    .collect(Collectors.toList());
+
     }
 
     public List<Integer> getEvenListByIntervals(int left, int right) {
-        if(left > right)
 
-            return IntStream.rangeClosed(Math.min(left, right), Math.max(left, right))
-                    .filter(v -> v%2==0)
-                    .boxed()
-                    .sorted(Comparator.reverseOrder())
-                    .collect(Collectors.toList());
-        else
-            return IntStream.rangeClosed(Math.min(left, right), Math.max(left, right))
-                    .filter(v -> v%2==0)
-                    .boxed()
-                    .sorted()
-                    .collect(Collectors.toList());
+        return IntStream.rangeClosed(Math.min(left, right), Math.max(left, right))
+                .filter(v -> v % 2 == 0)
+                .boxed()
+                .sorted(left > right ? Comparator.reverseOrder() : Comparator.naturalOrder())
+                .collect(Collectors.toList());
 
     }
 
     public List<Integer> popEvenElments(int[] array) {
-        Stream<Integer> stream1 = Arrays.stream(array).boxed();
-
-        return stream1
-                .filter(v -> v%2==0)
+        return Arrays.stream(array).boxed()
+                .filter(v -> v % 2 == 0)
                 .collect(Collectors.toList());
 
     }
 
     public int popLastElment(int[] array) {
-        Stream<Integer> stream1 = Arrays.stream(array).boxed();
-       int a= 8;
-        System.out.println();
-        return stream1
+
+        return Arrays.stream(array).boxed()
                 .reduce((first, second) -> second)
                 .orElse(null);
 
